@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/jrapoport/chestnut"
 	"github.com/jritsema/go-htmx-starter/internal"
 	"github.com/jritsema/go-htmx-starter/pkg/templates"
 	"github.com/jritsema/go-htmx-starter/pkg/webtools"
@@ -14,12 +15,12 @@ import (
 )
 
 type DeviceThing struct {
-	db *bbolt.DB
+	db *chestnut.Chestnut
 	//parsed templates
 	html *template.Template
 }
 
-func NewDevices(db *bbolt.DB, router *http.ServeMux) DeviceThing {
+func NewDevices(db *chestnut.Chestnut, router *http.ServeMux) DeviceThing {
 	//parse templates
 	var err error
 
@@ -38,13 +39,13 @@ func NewDevices(db *bbolt.DB, router *http.ServeMux) DeviceThing {
 		db:   db,
 		html: html,
 	}
-	err = db.Update(func(tx *bbolt.Tx) error {
-		_, err := tx.CreateBucketIfNotExists([]byte("Devices"))
-		if err != nil {
-			return fmt.Errorf("create bucket: %s", err)
-		}
-		return nil
-	})
+	// err = db.Update(func(tx *bbolt.Tx) error {
+	// 	_, err := tx.CreateBucketIfNotExists([]byte("Devices"))
+	// 	if err != nil {
+	// 		return fmt.Errorf("create bucket: %s", err)
+	// 	}
+	// 	return nil
+	// })
 
 	if err != nil {
 		panic(err)

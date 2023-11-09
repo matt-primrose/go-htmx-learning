@@ -5,15 +5,18 @@
   <td class="whitespace-nowrap px-6 py-4">{{.SelfSignedAllowed}}</td>
   <td class="whitespace-nowrap px-1 py-1">
     <a
-      hx-get="/device/connect/{{.Id}}"
-      hx-target="#content"
-      hx-swap="innerHTML"
-      hx-indicator="#processing"
-      class="hover:underline text-blue-700"
-      href=""
-    >
-      Connect
-    </a>
+    hx-get="/device/connect/{{.Id}}"
+    hx-target="#content"
+    hx-swap="innerHTML"
+    hx-indicator="#processing"
+    hx-trigger="click"
+    hx-boost="true"
+    hx-before-request="javascript:if(window.currentHtmxRequest) window.currentHtmxRequest.abort();"
+    class="hover:underline text-blue-700"
+    href="javascript:void(0);"
+  >
+    Connect
+  </a>
   </td>
   <td class="whitespace-nowrap px-1 py-1">
     <a

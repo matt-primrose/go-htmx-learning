@@ -10,14 +10,14 @@ import (
 )
 
 type Device struct {
-	Id                int
-	UUID              string
-	Name              string
-	Address           string
-	FWVersion         string
-	Username          string
-	Password          string
-	UseTLS            bool
+	Id                int 
+	UUID              string 
+	Name              string 
+	Address           string 
+	FWVersion         string 
+	Username          string 
+	Password          string `json:"password,secure"`
+	UseTLS            bool 
 	SelfSignedAllowed bool
 }
 

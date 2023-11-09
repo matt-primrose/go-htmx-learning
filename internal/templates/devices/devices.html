@@ -1,3 +1,18 @@
+<script>
+  document.body.addEventListener('htmx:beforeRequest', function(evt) {
+  if (window.currentHtmxRequest && window.currentHtmxRequest !== evt.detail.xhr) {
+    window.currentHtmxRequest.abort();
+  }
+  window.currentHtmxRequest = evt.detail.xhr;
+});
+
+document.body.addEventListener('htmx:afterRequest', function(evt) {
+  if (window.currentHtmxRequest === evt.detail.xhr) {
+    window.currentHtmxRequest = null;
+  }
+});
+  </script>
+
 <div id="devices">
   <div id="processing" class="htmx-indicator">Processing...</div>
   <div class="flex flex-col">
