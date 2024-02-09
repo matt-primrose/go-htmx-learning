@@ -1,5 +1,7 @@
 # go-htmx-tailwind-example
 
+## Prototype work completed.  Archiving and moved to [https://github.com/open-amt-cloud-toolkit/console](https://github.com/open-amt-cloud-toolkit/console)
+
 Example CRUD app written in Go + HTMX + Tailwind CSS
 
 This project implements a pure dynamic web app with SPA-like features but without heavy complex Javascript or Go frameworks to keep up with.  Just HTML/CSS + Go ❤️
